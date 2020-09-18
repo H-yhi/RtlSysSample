@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>経費承認管理システム - Master</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../common/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../common/css/master.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <!-- ヘッダー -->
+    <nav class="navbar navbar-light sticky-top flex-md-nowrap p-10" style="background-color: #FFFFFF;">
+    <input type="image" class="icon-size" src="../common/pic/rutla.png" alt="rutla" href="#"/>
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <button class="btn btn-outline-primary" onClick="location.href='../signin/signin.html'">Sign out</button>
+        </li>
+      </ul>
+    </nav>
+    
+    <div class="container-fluid">
+      <div class="row">
+      
+        <!-- サイドバー -->
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-heading sidebar-sticky">
+            <ul class="nav flex-column">
+            
+            
+            <!-- メインメニュー -->
+            <h7 class="d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>-- Main Menu --</span>
+            </h7>
+              <!--li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-Expense="home"></span>
+                  Top(未実装)
+                </a>
+              </li -->
+              <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  <span data-expense="file"></span>
+                  Application List <span class="sr-only" >(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Master
+                </a>
+              </li>
+            </ul>
+            <!-- サブメニュー -->
+            <h7 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>-- Sub Menu --</span>
+            </h7>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-expense="file-text"></span>
+                  Current month
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-expense="file-text"></span>
+                  Last quarter
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-expense="file-text"></span>
+                  Social engagement
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-expense="file-text"></span>
+                  Year-end sale
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          <div class="main-sticky d-flex justify-content-between flex-wrap flex-md-nowrap align-items-baseline pb-2 mb-3 border-bottom">
+            <h1 class="h2">Master管理</h1>
+          </div>
+          <h4 class="mb-3">A Master</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-6 mb-5">
+                <input type="text" class="form-control" id="DBの項目名入れる" placeholder="キー（ID等）入力テキスト欄" required autofocus>
+              </div>
+              <div class="col-auto">
+                <button type="button" class="btn btn-primary mb-2">表示</button>
+              </div>
+            </div>
+            
+            <span class="row mb-4">
+              <span class="col-md-6">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">項目名</span>
+                  </div>
+                <input type="text" class="form-control" id="DBの項目名入れる" required>
+                </div>
+              </span>
+              
+              <span class="col-md-6">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">項目名</span>
+                  </div>
+                <input type="text" class="form-control" id="DBの項目名入れる" required>
+                </div>
+              </span>
+            </span>
+            
+            <span class="row mb-4">
+              <span class="col-md-6">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">項目名</span>
+                  </div>
+                <input type="text" class="form-control" id="DBの項目名入れる" required>
+                </div>
+              </span>
+              
+              <span class="col-md-6">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">項目名</span>
+                  </div>
+                <input type="text" class="form-control" id="DBの項目名入れる" required>
+                </div>
+              </span>
+            </span>
+            
+            <span class="row mb-4">
+              <span class="col-md-6">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">項目名</span>
+                  </div>
+                <input type="text" class="form-control" id="DBの項目名入れる" required>
+                </div>
+              </span>
+              
+              <span class="col-md-6">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">項目名</span>
+                  </div>
+                <input type="text" class="form-control" id="DBの項目名入れる" required>
+                </div>
+              </span>
+            </span>
+            
+            <button type="submit" class="btn btn-primary float-right" id="update">更新</button>
+
+        </main>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../common/js/jquery-slim.min.js"><\/script>')</script>
+    <script src="../common/js/popper.min.js"></script>
+    <script src="../common/js/bootstrap.min.js"></script>
+    
+    <!-- Icons -->
+    <script type="text/javascript" src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>経費承認管理システム - 申請一覧</title>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/Application-List.css}" rel="stylesheet">
+    <link th:href="@{/css/common.css}" rel="stylesheet">
+    
+    <script type="text/javascript" src="@{js/include.js}"></script>
+  </head>
+
+  <body>
+    <!-- ヘッダー -->
+    <div>
+      <script type="text/javascript" >
+        include("../common/html/header.html"); 
+      </script>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+      
+       <!-- サイドバー -->
+        <script type="text/javascript" >
+          include("../common/html/sidebar.html"); 
+        </script>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          <div class="main-sticky d-flex justify-content-between flex-wrap flex-md-nowrap align-items-baseline pb-2 mb-3 border-bottom">
+            <h1 class="h2">申請一覧</h1>
+          </div>
+
+          <!-- 残高テーブル -->
+          <div class="table-zan">
+            <table class="table-sm table-condensed">
+              <tr>
+                <td class="color-zan">残額</td>
+                <td>100,000円</td>
+              </tr>
+            </table>
+          </div>
+            <div class="btn-toolbar pb-3">
+              <select name="select" multiple class="btn btn-sm btn-outline-secondary dropdown-toggle mr-2">
+                <option value="">人物選択1</option>
+                <option value="">人物選択2</option>
+                <option value="">人物選択3</option>
+                <option value="">人物選択4</option>
+                <option value="">人物選択5</option>
+              </select>
+              <input type="month" class="btn btn-sm btn-outline-secondary h-25" />
+            </div>
+            
+          <!-- 検索ボックス -->
+            <span class="row mb-2">
+              <span class="col-md-4">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">担当者</span>
+                  </div>
+                <input type="text" class="form-control" id="DBの項目名入れる" required>
+                </div>
+              </span>
+              
+              <span class="col-md-4">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">申請者</span>
+                  </div>
+                <input type="text" class="form-control" id="DBの項目名入れる" required>
+                </div>
+              </span>
+              
+              <span class="col-md-4">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">申請日</span>
+                  </div>
+                <input type="text" class="form-control" id="DBの項目名入れる" required>
+                </div>
+              </span>
+            </span>
+            
+            <span class="row mb-2">
+              <span class="col-md-4">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">申請内容</span>
+                  </div>
+                <input type="text" class="form-control" id="DBの項目名入れる" required>
+                </div>
+              </span>
+              
+              <span class="col-md-4">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">ステータス</span>
+                  </div>
+                <input type="text" class="form-control" id="DBの項目名入れる" required>
+                </div>
+              </span>
+              
+              <span class="col-md-4">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">棄却/承認</span>
+                  </div>
+                <input type="text" class="form-control" id="DBの項目名入れる" required>
+                </div>
+              </span>
+            </span>
+            
+            <span class="row mb-2">
+              <span class="col-md-4">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">使用理由</span>
+                  </div>
+                <input type="text" class="form-control" id="DBの項目名入れる" required>
+                </div>
+              </span>
+              
+              <span class="col-md-4">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">使用金額</span>
+                  </div>
+                <input type="text" class="form-control" id="DBの項目名入れる" required>
+                </div>
+              </span>
+            </span>
+            
+            <button type="submit" class="btn btn-sm btn-primary float-right mb-4" id="update">検索</button>
+          
+          <!-- 申請テーブル -->
+          <div class="table-cat table-responsive ">
+          <div th:if="${#fields.hasErrors()}" th:errors="*{}"></div>
+            <table class="table-cat table-sm table-condensed table-responsive">
+              <thead>
+                <tr>
+                  <th class="text-center">担当者</th>
+                  <th class="text-center">申請者</th>
+                  <th class="text-center">申請日</th>
+                  <th class="text-center">申請内容</th>
+                  <th class="text-center">エスカレーション</th>
+                  <th class="text-center">ステータス</th>
+                  <th class="text-center">棄却/承認</th>
+                  <th class="text-center">処理理由</th>
+                  <th class="text-center">使用金額</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+              <!--
+                <tr>
+                  <td>順　川島</td>
+                  <td>川島　順</td>
+                  <td>YYYY/MM/DD</td>
+                  <td>申請内容</td>
+                  <td>エスカレーション</td>
+                  <td>ステータス</td>
+                  <td>棄却/承認</td>
+                  <td>処理理由</td>
+                  <td class="text-right">10,000円</td>
+                  <form action="A.php">
+                  <td>
+                    <input type="submit" class="btn btn-outline-primary btn-sm" value="更新" />
+                  </td>
+                  </form>
+                </tr>
+                -->
+                <tr th:each = "applicationList : ${applicationLists}">
+                	<td th:text = "{iExpensesId}"></td>
+                </tr>
+                <tr>
+                  <td>よん　文字</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td class="text-right">1,000円</td>
+                  <form action="A.php">
+                  <td>
+                    <input type="submit" class="btn btn-outline-primary btn-sm" value="登録" />
+                  </td>
+                  </form>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <form action="A.php">
+                  <td>
+                    <input type="submit" class="btn btn-outline-primary btn-sm" value="登録" />
+                  </td>
+                  </form>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <form action="A.php">
+                  <td>
+                    <input type="submit" class="btn btn-outline-primary btn-sm" value="登録" />
+                  </td>
+                  </form>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <form action="A.php">
+                  <td>
+                    <input type="submit" class="btn btn-outline-primary btn-sm" value="登録" />
+                  </td>
+                  </form>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <form action="A.php">
+                  <td>
+                    <input type="submit" class="btn btn-outline-primary btn-sm" value="登録" />
+                  </td>
+                  </form>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <form action="A.php">
+                  <td>
+                    <input type="submit" class="btn btn-outline-primary btn-sm" value="登録" />
+                  </td>
+                  </form>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <form action="A.php">
+                  <td>
+                    <input type="submit" class="btn btn-outline-primary btn-sm" value="登録" />
+                  </td>
+                  </form>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <form action="A.php">
+                  <td>
+                    <input type="submit" class="btn btn-outline-primary btn-sm" value="登録" />
+                  </td>
+                  </form>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <form action="A.php">
+                  <td>
+                    <input type="submit" class="btn btn-outline-primary btn-sm" value="登録" />
+                  </td>
+                  </form>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <form action="A.php">
+                  <td>
+                    <input type="submit" class="btn btn-outline-primary btn-sm" value="登録" />
+                  </td>
+                  </form>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <form action="A.php">
+                  <td>
+                    <input type="submit" class="btn btn-outline-primary btn-sm" value="登録" />
+                  </td>
+                  </form>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <form action="A.php">
+                  <td>
+                    <input type="submit" class="btn btn-outline-primary btn-sm" value="登録" />
+                  </td>
+                  </form>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <form action="A.php">
+                  <td>
+                    <input type="submit" class="btn btn-outline-primary btn-sm" value="登録" />
+                  </td>
+                  </form>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <form action="A.php">
+                  <td>
+                    <input type="submit" class="btn btn-outline-primary btn-sm" value="登録" />
+                  </td>
+                  </form>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <form action="A.php">
+                  <td>
+                    <input type="submit" class="btn btn-outline-primary btn-sm" value="登録" />
+                  </td>
+                  </form>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../common/js/jquery-slim.min.js"><\/script>')</script>
+    <script src="../common/js/popper.min.js"></script>
+    <script src="../common/js/bootstrap.min.js"></script>
+    
+    <!-- Icons -->
+    <script type = "text/javascript" src = "include.js">
+    <script type="text/javascript" src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,139 @@
+body {
+  font-size: .875rem;
+}
+
+.expense {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+/*
+ * Navbar
+ */
+
+.icon-size {
+  position: sticky;
+  width: 10%;
+  height: auto;
+  outline: 0;
+}
+
+.navbar {
+  padding: .75rem 1rem;
+  border-width: 0;
+  border-radius: 0;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: relative;
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100px; /* Behind the navbar */
+  padding: 0;
+  border : solid 1px #EEEEEE ;
+}
+
+.sidebar-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 130px; /* Height of navbar */
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar .nav-link .expense {
+  margin-right: 4px;
+  color: #999;
+}
+
+.sidebar .nav-link.active {
+  color: #007bff;
+}
+
+.sidebar .nav-link:hover .expense,
+.sidebar .nav-link.active .expense {
+  color: inherit;
+}
+
+.sidebar-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+/*
+ * main
+ */
+
+.main-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  padding: 0;
+  margin: 0;
+  top: 120px; /* Height of navbar */
+  background-color: #FFFFFF;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+/*
+ * table
+ */
+
+table th, table td {
+  border: solid 1px #EEEEEE;
+}
+
+.table-zan {
+  border: solid 1px #EEEEEE;
+  float:right;
+}
+
+.color-zan {
+  background-color: #F0F8FF;
+}
+
+.table-cat {
+  max-height: calc(100% - 30px);
+  border-collapse: collapse;
+  font-size: midium;
+  line-height: 130%;
+  padding: 0
+  margin-bottom: 20px;
+/* overflow-x: hidden; /* 横スクロール非表示 */
+/* overflow-y: scroll; /* 縦スクロール */
+}
+
+.table-cat th,table-cat td{
+  padding: 15px 0;
+}
+
+.table-cat tr:nth-child(odd) td {  
+  background-color: #F0F8FF;
+  vertical-align: middle;
+}
+.table-cat tr:nth-child(even) td {  
+  background-color: Transparent;  
+}
+
+.table-cat tr:hover td {
+  background-color: #F0F0F0;
+}
+
+/*
+ * Utilities
+ */
+
+.border-top { border-top: 1px solid #e5e5e5; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+
